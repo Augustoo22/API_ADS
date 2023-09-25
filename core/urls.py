@@ -11,8 +11,7 @@ from controle_disciplina.views.tarefaView.tarefaGet import get_simplesTarefa, ge
 from controle_disciplina.views.tarefaView.tarefaPost import addtarefa
 from controle_disciplina.views.tarefaView.tarefaPut import tarefaupdate
 from controle_disciplina.views.tarefaView.tarefaDelete import Tarefadelete
-from controle_disciplina.views.tarefaView.tarefaAluo import listar_tarefas_aluno
-
+from controle_disciplina.views.tarefaView.tarefaAluno import ListarTarefasAlunoView
 urlpatterns = [
     # Alunos
     path('alunosGet/', get_simplesAluno, name='get_alunos'),
@@ -36,5 +35,5 @@ urlpatterns = [
     path('tarefaDelete/<int:pk>/', Tarefadelete, name='delete_tarefa'),
 
     # Tarefas de um Aluno
-    path('tarefaListAluno/<int:pk>/tarefas/', listar_tarefas_aluno, name='listar_tarefas_aluno'),
+    path('tarefaAlunos/alunos/<int:aluno_id>/tarefas/', ListarTarefasAlunoView.as_view(), name='listar_tarefas_aluno'),
 ]
